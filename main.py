@@ -57,6 +57,7 @@ class Plang:
 
     def plang_ki(self,row,variable):
 
+        #print(variable)
         for x in range(0, len(variable)):
             if variable[x][0] in row:
                 row = row.replace(str(variable[x][0]), str(variable[x][1]))
@@ -68,7 +69,7 @@ class Plang:
         row = row.replace("|","abs(")
         row = row.replace("DIV","//")
         row = row.replace("MOD","%")
-
+        print(row)
         return eval(row)
 
     def run(self,file):
@@ -144,7 +145,7 @@ class Plang:
                     van = 0
                     for y in range(len(valtozok)):
                         if(valtozok[y][0] == valtozo[0]):
-                            valtozok[y][1] = valtozo[1]
+                            valtozok[y][1] = self.muvelet(valtozo[1],valtozok)
                             van = 1
                             break
                     if van == 0:
@@ -192,6 +193,6 @@ class Plang:
 plang = Plang()
 
 #file = input('Kérem a fájl nevét: ')
-file = "teszt.plang"
+file = "teszt2.plang"
 file = plang.read_file(file)
 plang.run(file)

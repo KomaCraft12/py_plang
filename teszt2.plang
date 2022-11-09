@@ -1,0 +1,9 @@
+program sanyi
+valtozok: a,c:egész
+be: a
+c := 1
+ha a > c akkor
+c := c+1
+ha_vege
+ki: c
+program_vege
