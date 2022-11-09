@@ -69,6 +69,7 @@ class Plang:
         row = row.replace("|","abs(")
         row = row.replace("DIV","//")
         row = row.replace("MOD","%")
+        row = row.replace("VAGY","or")
         print(row)
         return eval(row)
 
@@ -192,7 +193,7 @@ class Plang:
 
 plang = Plang()
 
-#file = input('Kérem a fájl nevét: ')
-file = "teszt2.plang"
+file = input('Kérem a fájl nevét: ')
+#file = "teszt2.plang"
 file = plang.read_file(file)
 plang.run(file)

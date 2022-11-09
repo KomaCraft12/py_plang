@@ -1,0 +1,13 @@
+program a
+valtozok a,b,c:egész
+be:a
+b:=2
+c:=0
+ciklus a>b amig
+ha a mod b == 0 akkor
+c:=c+b
+ha_vege
+b:=b+1
+ciklus_vege
+ki:c
+program_vege
