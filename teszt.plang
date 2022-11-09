@@ -1,11 +1,9 @@
-program lajos
-valtozok: a,b:egész
-a := -3
-b := 2
-c := 0
-HA a > b AKKOR
+program sanyi
+valtozok: a,c:egész
+be: a
 c := 1
-KULONBEN
-c := 3
-HA_VEGE
-ki: c > a
+ciklus c <= a amig
+ki: c
+c := c+1
+ciklus_vege
+program_vege
