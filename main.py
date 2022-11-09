@@ -39,7 +39,6 @@ class Plang:
 
     def run(self,file):
         valtozok = []
-        ki = ()
         if len(file) > 1:
             if "program" not in file[0]:
                 print('Nincs megadva a program')
@@ -50,10 +49,10 @@ class Plang:
         else:
             print("Üres fájl!")
 
-        ha = [0]
+        ha = 0
         for i in range(2,len(file)):
             #print(ha)
-            if ":=" in file[i] and ha == "nem":
+            if ":=" in file[i] and ha == 0:
                 valtozo = file[i].split(" := ")
                 #print("változó értékadás")
 
@@ -70,17 +69,16 @@ class Plang:
 
                 logikai = self.ha_feltetel(feltetel,valtozok)
 
-                print(logikai)
+                #print(logikai)
 
                 if logikai == True:
-                    ha[0] = 1
+                    ha = 1
                 else:
-                    ha[0] = 2
-                print(ha)
-            if "HA_VEGE":
-                ha = "nem"
-            if ha[0] == 1:
-                print(1000)
+                    ha = 2
+                #print(ha)
+            if "HA_VEGE" in file[i]:
+                ha = 0
+            if ha == 1:
                 if ":=" in file[i]:
                     valtozo = file[i].split(" := ")
                     van = 0
@@ -89,17 +87,14 @@ class Plang:
                             valtozok[y][1] = valtozo[1]
                             van = 1
                             break
-                    print("Van: "+str(van))
                     if van == 0:
                         valtozok.append(valtozo)
 
                 if "ki:" in file[i]:
                     ki = str(file[i][4:])
                     print(self.plang_ki(ki,valtozok))
-            if ha == 2:
-                #program
-                ha = 0
-
+            if ha == 2 and "KULONBEN" in file[i]:
+                ha = 1
 
 
 
@@ -107,6 +102,7 @@ class Plang:
 
 plang = Plang()
 
-file = input('Kérem a fájl nevét: ')
+#file = input('Kérem a fájl nevét: ')
+file = "teszt.plang"
 file = plang.read_file(file)
 plang.run(file)

@@ -1,9 +1,11 @@
-program
+program lajos
 valtozok: a,b:egész
 a := -3
 b := 2
 c := 0
-HA a < b AKKOR
+HA a > b AKKOR
 c := 1
+KULONBEN
+c := 3
 HA_VEGE
-ki: c
+ki: c > a
