@@ -9,6 +9,10 @@ class Plang:
             file2.append(sor)
         return file2
     def ha_feltetel(self,feltetel,variable):
+        feltetel = feltetel.replace("HA", "")
+        feltetel = feltetel.replace("AKKOR", "")
+        feltetel = feltetel.replace("\n", "")
+
         for z in range(0, len(variable)):
             feltetel = feltetel.replace(variable[z][0], variable[z][1])
             feltetel = feltetel.replace("\n","")
@@ -63,9 +67,6 @@ class Plang:
                 print(self.plang_ki(ki,valtozok))
             if "HA" in file[i] and "HA_VEGE" not in file[i]:
                 feltetel = file[i]
-                feltetel = feltetel.replace("HA","")
-                feltetel = feltetel.replace("AKKOR","")
-                feltetel = feltetel.replace("\n","")
 
                 logikai = self.ha_feltetel(feltetel,valtozok)
 
